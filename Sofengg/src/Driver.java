@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Database;
-import model.User;
+import model.*;
+
 import util.Query;
 import util.Service;
 
@@ -11,6 +11,7 @@ public class Driver {
 		Scanner sc = new Scanner(System.in);
 		boolean isLoggedIn = false;
 		String user, pass;
+		ArrayList<Item> inventory;
 		
 		do{
 			System.out.print("enter username: ");
@@ -31,6 +32,10 @@ public class Driver {
 			}
 			
 		}while(!isLoggedIn);
+		
+		inventory = Service.allItems();
+		for (int i = 0; i < inventory.size(); i++)
+			System.out.println(inventory.get(i).toString());
 		
 		Database.getInstance().close();
 	}

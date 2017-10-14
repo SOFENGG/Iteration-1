@@ -3,6 +3,7 @@ package util;
 import java.util.ArrayList;
 
 import model.User;
+import model.Item;
 
 public class Service {
 	
@@ -18,4 +19,9 @@ public class Service {
 		
 	}
 	
+	//no filter/search
+	public static ArrayList<Item> allItems(){
+		ArrayList<Item> items = Query.getInstance().itemQuery("select * from items;");
+		return items;
+	}
 }
