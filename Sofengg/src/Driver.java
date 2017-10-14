@@ -3,14 +3,13 @@ import java.util.Scanner;
 
 import model.*;
 
-import util.Query;
 import util.Service;
 
 public class Driver {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		boolean isLoggedIn = false;
-		String user, pass;
+		String user, pass, search;
 		ArrayList<Item> inventory;
 		
 		do{
@@ -33,10 +32,22 @@ public class Driver {
 			
 		}while(!isLoggedIn);
 		
+		System.out.println("\nAll Items:");
 		inventory = Service.allItems();
 		for (int i = 0; i < inventory.size(); i++)
 			System.out.println(inventory.get(i).toString());
 		
+		System.out.print("\nSearch: ");
+		search = sc.nextLine();
+		inventory = Service.searchItems(search);
+		if (inventory == null)
+			System.out.println("no matches found");
+		else {
+			for (int i = 0; i < inventory.size(); i++)
+				System.out.println(inventory.get(i).toString());
+		}
+		
 		Database.getInstance().close();
+		sc.close();
 	}
 }
