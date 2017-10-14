@@ -22,7 +22,10 @@ public class Driver {
 			
 			if(u != null){
 				isLoggedIn = true;
-				System.out.println("Welcome back " + u.getName());
+				if (u.getAccessLevel() == 1)
+					System.out.println("Welcome back manager " + u.getName());
+				else if (u.getAccessLevel() == 2)
+					System.out.println("Welcome back cashier " + u.getName());
 			}else{
 				System.out.println("log in failed");
 			}

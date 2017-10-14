@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 
 public class Database {
-	private final String directory = "jdbc:mysql://localhost:3306/autosupply";
+	private final String directory = "jdbc:mysql://localhost:3306/autosupply?useSSL=false";
 	private final String user = "root";
-	private final String pass = "1234";
+	private final String pass = "garnet";
 	
 	private static Database instance = new Database();
 	
@@ -19,7 +19,7 @@ public class Database {
 	private ResultSet rs;
 	
 	//instantiate the connection with the database
-	private Database(){
+	private Database(){		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(directory, user, pass);

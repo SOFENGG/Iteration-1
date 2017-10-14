@@ -5,12 +5,14 @@ public class User {
 	private String name;
 	private String user;
 	private String pass;
+	private int accessLevel;
 	
-	public User(int userID, String name, String user, String pass){
+	public User(int userID, String name, String user, String pass, int accessLevel){
 		this.userID = userID;
 		this.name = name;
 		this.user = user;
 		this.pass = pass;
+		this.accessLevel = accessLevel;
 	}
 	
 	public int getID(){
@@ -24,5 +26,8 @@ public class User {
 	}
 	public String getPass(){
 		return pass;
+	}
+	public int getAccessLevel() {
+		return accessLevel;
 	}
 }
