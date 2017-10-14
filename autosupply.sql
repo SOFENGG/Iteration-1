@@ -82,6 +82,7 @@ DROP TABLE IF EXISTS `items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `items` (
   `item_code` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `description` varchar(45) NOT NULL,
   `category` varchar(45) NOT NULL,
   `manufacturer` varchar(45) NOT NULL,
